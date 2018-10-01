@@ -29,7 +29,7 @@
       "Properties": {
         "Code": {
             "S3Bucket": "your-bucket-with-function-code",
-            "S3Key": "function-package.zip"
+            "S3Key": "package.zip"
         },
         "Handler": "loader.handler",
         "Role": { "Fn::GetAtt" : ["DDBLambdaLoaderRole", "Arn"] },        
@@ -69,11 +69,11 @@
       }
     },
     "CRDataLoader": {
-      "Type": "Custom::DynamoDBLoader",
+      "Type": "Custom::DDBLambdaLoader",
       "Properties": {
         "ServiceToken": {
           "Fn::GetAtt": [
-            "DynamoDBLoader",
+            "DDBLambdaLoader",
             "Arn"
           ]
         }
